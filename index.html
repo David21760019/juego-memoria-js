@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Juego de Memoria</title>
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ body {
+ font-family: 'Arial', sans-serif;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ min-height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 20px;
+ }
+ #game-container {
+ background: white;
+ border-radius: 20px;
+ padding: 30px;
+ box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+ max-width: 600px;
+ width: 100%;
+ }
+ .game-header {
+ text-align: center;
+ margin-bottom: 30px;
+ }
+ .game-header h1 {
+ color: #667eea;
+ margin-bottom: 20px;
+ font-size: 2.5em;
+ }
+ .stats {
+ display: flex;
+ justify-content: space-around;
+ margin-bottom: 20px;
+ }
+ .stat-item {
+ background: #f0f0f0;
+ padding: 10px 20px;
+ border-radius: 10px;
+ font-weight: bold;
+ }
+ .stat-item span {
+ color: #667eea;
+ font-size: 1.5em;
+ }
+ .game-board {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 15px;
+ margin-bottom: 20px;
+ }
+ .card {
+ aspect-ratio: 1;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ border-radius: 15px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 3em;
+ cursor: pointer;
+ transition: transform 0.3s, background 0.3s;
+ }
+ .card:hover {
+ transform: scale(1.05);
+ }
+ .card.flipped {
+ background: white;
+ border: 3px solid #667eea;
+ }
+ .card.matched {
+ background: #4CAF50;
+ cursor: default;
+ animation: matchAnimation 0.6s ease;
+ }
+ .buttons {
+ display: flex;
+ gap: 10px;
+ justify-content: center;
+ }
+ button {
+ background: #667eea;
+ color: white;
+ border: none;
+ padding: 12px 30px;
+ border-radius: 10px;
+ font-size: 1em;
+ cursor: pointer;
+ transition: background 0.3s, transform 0.2s;
+ font-weight: bold;
+ }
+ button:hover {
+ background: #764ba2;
+ transform: translateY(-2px);
+ }
+ .modal {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.7);
+ justify-content: center;
+ align-items: center;
+ z-index: 1000;
+ }
+ .modal.show {
+ display: flex;
+ }
+ .modal-content {
+ background: white;
+ padding: 40px;
+ border-radius: 20px;
+ text-align: center;
+ animation: modalAppear 0.5s ease;
+ }
+ .modal-content h2 {
+ color: #4CAF50;
+ font-size: 2.5em;
+ margin-bottom: 20px;
+ }
+ .modal-content p {
+ font-size: 1.2em;
+ margin-bottom: 10px;
+ }
+ @keyframes matchAnimation {
+ 0%, 100% { transform: scale(1); }
+ 50% { transform: scale(1.1); }
+ }
+ @keyframes modalAppear {
+ from {
+ opacity: 0;
+ transform: scale(0.8);
+ }
+ to {
+ opacity: 1;
+ transform: scale(1);
+ }
+ }
+ @media (max-width: 600px) {
+ .game-board {
+ gap: 10px;
+ }
+ .card {
+ font-size: 2em;
+ }
+ }
+ </style>
+</head>
+<body>
+ <!--
+ ⚠EL BODY ESTÁ VACÍO A PROPÓSITO
+ Todo el contenido se creará con JavaScript
+ -->
+ <script src="script.js"></script>
+</body>
+</html>
